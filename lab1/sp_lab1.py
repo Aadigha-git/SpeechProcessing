@@ -46,17 +46,17 @@ def play_and_plot_segment(start_time, end_time, y, sr):
     plt.ylabel('Amplitude')
     plt.show()
 
-# Load audio file
+# A1. Load audio file
 filename = r"C:/Users/AADITYA/Desktop/sem6/SpeechProcessing/lab1/Speech.mp3"
 y, sr = librosa.load(filename)
 
 # Plot waveform
 plot_waveform(y, sr)
 
-# Calculate length and magnitude range
+# A2. Calculate length and magnitude range
 calculate_length_and_magnitude(y, sr)
 
-# Play and plot different segments
+# A3 & A4. Play and plot different segments
 play_and_plot_segment(2, 6, y, sr)
 play_and_plot_segment(0, 2, y, sr)
 play_and_plot_segment(1, 3, y, sr)
