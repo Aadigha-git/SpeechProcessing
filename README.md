@@ -2,7 +2,7 @@
 AI in Speech Processing coursework
 Course learnings
 
-**Lab 1:** \n
+**Lab 1:** <br>
 Librosa helps with
 *   Usage of audio files and loading audio recordings
 *   Visualization of audio signals
