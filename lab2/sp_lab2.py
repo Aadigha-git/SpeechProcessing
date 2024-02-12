@@ -1,8 +1,45 @@
-"""A3."""
-import numpy as np
+import librosa
+import librosa.display
 import matplotlib.pyplot as plt
+import numpy as np
+import sounddevice as sd
 from scipy.io import wavfile
 
+"""A1."""
+# Function to compute the first derivative using finite difference method
+def finite_difference(signal, sampling_rate):
+    dt = 1.0 / sampling_rate
+    derivative = np.diff(signal) / dt
+    return np.concatenate(([0], derivative))
+
+# Load the WAV file
+file_path = 'lab1/Speech.mp3'
+sampling_rate, signal = wavfile.read(file_path)
+
+# Compute the first derivative
+derivative = finite_difference(signal, sampling_rate)
+
+# Plot the original signal and its derivative
+time = np.arange(0, len(signal)) / sampling_rate
+
+plt.figure(figsize=(10, 6))
+plt.subplot(2, 1, 1)
+plt.plot(time, signal)
+plt.title('Original Signal')
+plt.xlabel('Time (s)')
+plt.ylabel('Amplitude')
+
+plt.subplot(2, 1, 2)
+time_derivative = np.arange(0, len(derivative)) / sampling_rate
+plt.plot(time_derivative, derivative)
+plt.title('First Derivative')
+plt.xlabel('Time (s)')
+plt.ylabel('Amplitude')
+
+plt.tight_layout()
+plt.show()
+
+"""A3."""
 def finite_difference(signal, sampling_rate):
     dt = 1.0 / sampling_rate
     derivative = np.diff(signal) / dt
